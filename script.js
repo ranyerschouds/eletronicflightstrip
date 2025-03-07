@@ -63,7 +63,7 @@ function addStrip() {
         <div class="info">📍 ${procedencia} ➝ ${destino}</div>
         <div class="info">✈️ ${tipo} | 🎛️ XPDR: ${transponder}</div>
         <div class="info">⚡ Vel: ${velocidade} | 🛤️ Rota: ${rota}</div>
-		<div class="status">Status: ${statusList[0]}</div>
+	<b><div class="status">${statusList[0]}</div></b>
         <button class="delete-btn" onclick="removeStrip(this)">🗑️</button>
     `;
 
@@ -98,7 +98,7 @@ function changeStatus(strip, forward = true) {
     }
 
     strip.dataset.statusIndex = index;
-    strip.querySelector(".status").textContent = `Status: ${statusList[index]}`;
+    strip.querySelector(".status").textContent = `${statusList[index]}`;
 
     // Regras de movimentação automática
     if (statusList[index] === "PONTO DE ESPERA" || statusList[index] === "DECOLAGEM") {
