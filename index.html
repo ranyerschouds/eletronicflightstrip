@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic Flight Strips</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+</head>
+<body>
+    <h1>Electronic Flight Strips</h1>
+
+    <button class="open-modal-btn" onclick="openModal()">Adicionar Strip</button>
+
+    <!-- Modal do Formulário -->
+    <div id="form-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Nova Strip</h2>
+            <input type="text" id="matricula" placeholder="Matrícula">
+            <input type="text" id="procedencia" placeholder="Procedência">
+            <input type="text" id="destino" placeholder="Destino">
+            <input type="text" id="tipo" placeholder="Tipo Aeronave">
+            <input type="text" id="transponder" placeholder="Transponder">
+            <input type="text" id="velocidade" placeholder="Velocidade">
+            <input type="text" id="rota" placeholder="Rota">
+            <select id="procedimento">
+                <option value="chegadas-list">Chegada</option>
+                <option value="partidas-list">Partida</option>
+                <option value="solo-list">Solo</option>
+            </select>
+            <button onclick="addStrip()">Adicionar</button>
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="column" id="chegadas">
+            <h2>Chegadas</h2>
+            <ul id="chegadas-list" class="strip-list"></ul>
+        </div>
+        <div class="column" id="partidas">
+            <h2>Partidas</h2>
+            <ul id="partidas-list" class="strip-list"></ul>
+        </div>
+        <div class="column" id="solo">
+            <h2>Solo</h2>
+            <ul id="solo-list" class="strip-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
