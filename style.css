@@ -152,6 +152,6 @@ h1 {
 }
 
 .strip.selected {
-    border: 2px solid darkgreen; /* 🔥 Borda verde escuro para indicar seleção */
+    border: 2px solid green; /* 🔥 Borda verde escuro para indicar seleção */
 }
 
