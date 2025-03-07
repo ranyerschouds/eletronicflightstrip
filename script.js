@@ -22,13 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
             changeStatus(selectedStrip, false);
         }
     });
-
-    document.addEventListener("click", function (e) {
+	
+	document.addEventListener("click", function (e) {
         if (!e.target.closest(".strip")) {
             deselectStrip();
         }
     });
-
+	
 });
 
 let selectedStrip = null;
@@ -36,7 +36,7 @@ let selectedStrip = null;
 const statusList = [
     "AGUARDANDO", "SOLICITADO", "AUTORIZADO", "PUSHBACK/ACIONAMENTO",
     "TÁXI", "PONTO DE ESPERA", "DECOLAGEM", "APP", "APROXIMAÇÃO",
-    "POUSO AUTORIZADO", "TÁXI", "PÁTIO"
+    "POUSO AUTORIZADO", "PISTA", "TÁXI", "PÁTIO"
 ];
 
 function openModal() {
@@ -70,7 +70,7 @@ function addStrip() {
         <div class="info">📍 ${procedencia} ➝ ${destino}</div>
         <div class="info">✈️ ${tipo} | 🎛️ A${transponder}</div>
         <div class="info">⚡ ${velocidade} | 🛤️ ${rota}</div>
-	<b><div class="status">${statusList[0]}</div></b>
+		<b><div class="status">${statusList[0]}</div></b>
         <button class="delete-btn" onclick="removeStrip(this)">🗑️</button>
     `;
 
@@ -117,9 +117,9 @@ function changeStatus(strip, forward = true) {
     // Regras de movimentação automática
     if (statusList[index] === "PONTO DE ESPERA" || statusList[index] === "DECOLAGEM") {
         document.getElementById("partidas-list").appendChild(strip);
-    } else if (statusList[index] === "PÁTIO" || statusList[index] === "TÁXI") {
+    } else if (statusList[index] === "PÁTIO" || statusList[index] === "TÁXI" || statusList[index] === "AGUARDANDO") {
         document.getElementById("solo-list").appendChild(strip);
-    } else if (statusList[index] === "APROXIMAÇÃO") {
+    } else if (statusList[index] === "APROXIMAÇÃO" || statusList[index] === "PISTA" ) {
         document.getElementById("chegadas-list").appendChild(strip);
 	}
 
@@ -129,11 +129,18 @@ function changeStatus(strip, forward = true) {
 // Atualizar cores das strips ao mover
 function updateStripColors() {
     document.querySelectorAll(".strip").forEach(strip => {
+		let index = parseInt(strip.dataset.statusIndex) || 0;
         let parentId = strip.parentElement.id;
         let matriculaDiv = strip.querySelector(".matricula");
 
         if (parentId === "solo-list") {
-            matriculaDiv.style.backgroundColor = "yellow";
+			if(index < 2) {
+				matriculaDiv.style.backgroundColor = "lightyellow";
+			} else if (index > 10) {
+				matriculaDiv.style.backgroundColor = "gray";
+			} else {
+				matriculaDiv.style.backgroundColor = "lightgreen";
+			}
         } else if (parentId === "partidas-list") {
             matriculaDiv.style.backgroundColor = "lightblue";
             matriculaDiv.style.color = "black";
