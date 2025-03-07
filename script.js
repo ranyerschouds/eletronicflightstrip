@@ -61,8 +61,8 @@ function addStrip() {
     strip.innerHTML = `
         <div class="matricula">${matricula}</div>
         <div class="info">📍 ${procedencia} ➝ ${destino}</div>
-        <div class="info">✈️ ${tipo} | 🎛️ XPDR: ${transponder}</div>
-        <div class="info">⚡ Vel: ${velocidade} | 🛤️ Rota: ${rota}</div>
+        <div class="info">✈️ ${tipo} | 🎛️ A${transponder}</div>
+        <div class="info">⚡ ${velocidade} | 🛤️ ${rota}</div>
 	<b><div class="status">${statusList[0]}</div></b>
         <button class="delete-btn" onclick="removeStrip(this)">🗑️</button>
     `;
