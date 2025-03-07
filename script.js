@@ -117,7 +117,7 @@ function changeStatus(strip, forward = true) {
     // Regras de movimentação automática
     if (statusList[index] === "PONTO DE ESPERA" || statusList[index] === "DECOLAGEM") {
         document.getElementById("partidas-list").appendChild(strip);
-    } else if (statusList[index] === "PÁTIO") {
+    } else if (statusList[index] === "PÁTIO" || statusList[index] === "TÁXI") {
         document.getElementById("solo-list").appendChild(strip);
     } else if (statusList[index] === "APROXIMAÇÃO") {
         document.getElementById("chegadas-list").appendChild(strip);
