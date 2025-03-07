@@ -16,15 +16,36 @@
     <div id="form-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h2>Nova Strip</h2>
-            <input type="text" id="matricula" placeholder="Matrícula">
-            <input type="text" id="procedencia" placeholder="Procedência">
-            <input type="text" id="destino" placeholder="Destino">
-            <input type="text" id="tipo" placeholder="Tipo Aeronave">
-            <input type="text" id="transponder" placeholder="Transponder">
-            <input type="text" id="velocidade" placeholder="Velocidade">
-            <input type="text" id="rota" placeholder="Rota">
-            <select id="procedimento">
+            <h3>Nova Strip</h3>
+			<div>
+				<label>Matrícula</label>
+				<input type="text" id="matricula" placeholder="Matrícula">
+			</div>
+			<div>
+				<label>Procedência</label>
+				<input type="text" id="procedencia" placeholder="Procedência">
+			</div>
+			<div>
+				<label>Destino</label>
+				<input type="text" id="destino" placeholder="Destino">
+			</div>
+			<div>
+				<label>Tipo</label>
+				<input type="text" id="tipo" placeholder="Tipo Aeronave">
+			</div>
+			<div>
+				<label>Transponder</label>
+				<input type="number" id="transponder" placeholder="Transponder">
+			</div>
+			<div>
+				<label>Velocidade</label>
+				<input type="text" id="velocidade" placeholder="Velocidade">
+			</div>
+			<div>
+				<label>Rota</label>
+				<input type="text" id="rota" placeholder="Rota">
+            </div>
+			<select id="procedimento">
                 <option value="chegadas-list">Chegada</option>
                 <option value="partidas-list">Partida</option>
                 <option value="solo-list">Solo</option>
