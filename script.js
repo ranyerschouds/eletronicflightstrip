@@ -67,7 +67,7 @@ function addStrip() {
     strip.dataset.statusIndex = "0";
     strip.innerHTML = `
         <div class="matricula">${matricula}</div>
-        <div class="info">📍 ${procedencia} ➝ ${destino}</div>
+        <b><div class="info">📍 ${procedencia} ➝ ${destino}</div></b>
         <div class="info">✈️ ${tipo} | 🎛️ A${transponder}</div>
         <div class="info">⚡ ${velocidade} | 🛤️ ${rota}</div>
 		<b><div class="status">${statusList[0]}</div></b>
@@ -135,7 +135,7 @@ function updateStripColors() {
 
         if (parentId === "solo-list") {
 			if(index < 2) {
-				matriculaDiv.style.backgroundColor = "lightyellow";
+				matriculaDiv.style.backgroundColor = "yellow";
 			} else if (index > 10) {
 				matriculaDiv.style.backgroundColor = "gray";
 			} else {
