@@ -22,6 +22,13 @@ document.addEventListener("DOMContentLoaded", function () {
             changeStatus(selectedStrip, false);
         }
     });
+
+    document.addEventListener("click", function (e) {
+        if (!e.target.closest(".strip")) {
+            deselectStrip();
+        }
+    });
+
 });
 
 let selectedStrip = null;
@@ -86,6 +93,13 @@ function selectStrip(strip) {
     }
     selectedStrip = strip;
     strip.classList.add("selected");
+}
+
+function deselectStrip() {
+    if (selectedStrip) {
+        selectedStrip.classList.remove("selected");
+        selectedStrip = null;
+    }
 }
 
 function changeStatus(strip, forward = true) {
